@@ -1,0 +1,305 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --ff-Primary: League Spartan, sans-serif;
+  --ff-Secondary: Antonio, sans-serif;
+  --fs-80: 80px;
+  --fs-40: 40px;
+  --fs-18: 18px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-12: 12px;
+  --fs-11: 11px;
+  --fw-400: 400;
+  --fw-800: 800;
+  --colorWhite: hsl(0, 0%, 100%);
+  --colorBorderWhite: hsla(0, 0%, 100%, 0.3);
+  --colorDarkBlue: hsl(240, 67%, 8%);
+  --colorGreen: hsl(169, 73%, 44%);
+  --colorBlue: hsl(222, 87%, 56%);
+  --colorDarkGray: hsl(240, 17%, 26%);
+  --colorTeal: hsl(194, 48%, 49%);
+  --colorPurple: hsl(263, 67%, 51%);
+  --colorGray: hsl(240, 6%, 54%);
+  --colorYellow: hsl(33, 82%, 61%);
+  --colorOrange100: hsl(17, 73%, 46%);
+  --colorOrange200: hsl(10, 63%, 51%);
+  --colorOrange300: hsl(2, 68%, 53%);
+}
+
+body {
+  position: relative;
+  background-color: var(--colorDarkBlue);
+  font-family: var(--ff-Primary);
+  font-size: var(--fs-14);
+  line-height: 1.79rem;
+  color: var(--colorWhite);
+}
+body svg {
+  position: absolute;
+  align-self: center;
+  z-index: -1;
+}
+
+h1 {
+  font-family: var(--ff-Secondary);
+  font-size: var(--fs-80);
+  text-transform: uppercase;
+  line-height: 7.39rem;
+}
+
+h2 {
+  font-family: var(--ff-Secondary);
+  font-size: var(--fs-40);
+  letter-spacing: -1.5px;
+}
+
+h3 {
+  font-size: var(--fs-12);
+  line-height: 1.79rem;
+}
+
+h4 {
+  font-size: var(--fs-11);
+  line-height: 1.79rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: var(--fw-800);
+}
+
+nav {
+  border-bottom: 1px solid var(--colorBorderWhite);
+}
+nav .wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  width: calc(100% - 4.57rem);
+  margin-inline: auto;
+  padding: 1.57rem 0 1.93rem 0;
+}
+nav .wrapper .logo {
+  font-family: var(--ff-Secondary);
+  margin: 0 auto 0 0;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: -1.05px;
+  color: var(--colorWhite);
+  width: 100%;
+}
+nav .wrapper .logo .show {
+  display: none;
+}
+nav .wrapper .logo .hide {
+  display: none;
+}
+nav .wrapper .logo a {
+  text-decoration: none;
+  color: var(--colorWhite);
+}
+nav .wrapper .nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.36rem;
+  list-style: none;
+  align-items: center;
+  justify-content: end;
+}
+nav .wrapper .nav-list li a {
+  text-decoration: none;
+  color: var(--colorWhite);
+}
+nav .wrapper .nav-list li:hover {
+  cursor: pointer;
+}
+nav .wrapper .menu-list {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  background-color: var(--colorDarkBlue);
+  top: 5em;
+  list-style: none;
+  max-height: 598px;
+  width: 100%;
+}
+nav .wrapper .menu-list li {
+  width: 100%;
+}
+nav .wrapper .menu-list li .wrapper {
+  display: flex;
+  border-bottom: 1px solid var(--colorBorderWhite);
+  padding: 1.43rem 0;
+}
+nav .wrapper .menu-list li .wrapper div {
+  display: flex;
+  align-items: center;
+}
+nav .wrapper .menu-list li .wrapper div h4 {
+  margin-left: 1.79rem;
+  font-size: var(--fs-15);
+}
+nav .wrapper .menu-list a {
+  color: white;
+  text-decoration: none;
+}
+nav .wrapper .menu-list svg {
+  position: relative;
+  z-index: 0;
+  margin-left: auto;
+}
+
+@media (max-width: 56.25em) {
+  nav .wrapper {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 2.44em;
+  }
+  nav .wrapper .logo {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 43.75em) {
+  nav .wrapper .logo {
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .wrapper .logo .hamburger {
+    position: fixed;
+    z-index: 100;
+    right: 1rem;
+    padding: 4px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    background-color: transparent;
+    font-size: 40px;
+  }
+  nav .wrapper .logo .show {
+    display: block;
+  }
+  nav .wrapper .nav-list {
+    display: none;
+  }
+}
+main .wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin: 9em auto 0 auto;
+  align-items: center;
+  max-width: 79.28rem;
+  gap: 2.14rem;
+}
+main .wrapper .planet {
+  grid-column: 3/9;
+}
+main .wrapper .planet div {
+  position: relative;
+}
+main .wrapper .planet img {
+  height: 100%;
+}
+main .wrapper .planet .planetInternal,
+main .wrapper .planet .planetGeology {
+  display: none;
+}
+main .wrapper .planet .planetGeology {
+  position: absolute;
+  height: 165px;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+main .wrapper .planetInfo {
+  grid-column: 9/-1;
+  max-width: 350px;
+}
+main .wrapper .planetInfo p:first-of-type {
+  margin-bottom: 1.71rem;
+}
+main .wrapper .planetInfo .bgColor {
+  background-color: var(--colorTeal);
+}
+main .wrapper .planetInfo ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.14rem;
+  margin-top: 2.79rem;
+}
+main .wrapper .planetInfo ul li {
+  text-transform: uppercase;
+  border: 1px solid var(--colorBorderWhite);
+  padding: 0.79rem 2rem;
+}
+main .wrapper .planetInfo ul li span {
+  color: var(--colorWhite);
+  opacity: 0.5;
+  margin-right: 2rem;
+}
+main .wrapper .planetInfo ul li:hover {
+  background-color: var(--colorGray);
+  cursor: pointer;
+}/*# sourceMappingURL=app.css.map */

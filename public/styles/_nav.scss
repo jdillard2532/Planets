@@ -1,0 +1,131 @@
+nav {
+  border-bottom: 1px solid var(--colorBorderWhite);
+
+  .wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: calc(100% - 4.57rem);
+    margin-inline: auto;
+    padding: 1.57rem 0 1.93rem 0;
+    .logo {
+      font-family: var(--ff-Secondary);
+      margin: 0 auto 0 0;
+      text-transform: uppercase;
+      font-size: 2rem;
+      letter-spacing: -1.05px;
+      color: var(--colorWhite);
+      width: 100%;
+
+      .show {
+        display: none;
+      }
+      .hide {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--colorWhite);
+      }
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.36rem;
+      list-style: none;
+      align-items: center;
+      justify-content: end;
+
+      li a {
+        text-decoration: none;
+        color: var(--colorWhite);
+      }
+      li:hover {
+        cursor: pointer;
+      }
+    }
+    .menu-list {
+      position: absolute;
+      display: none;
+      flex-direction: column;
+      background-color: var(--colorDarkBlue);
+      top: 5em;
+      list-style: none;
+      max-height: 598px;
+      width: 100%;
+      li {
+        width: 100%;
+        .wrapper {
+          display: flex;
+          border-bottom: 1px solid var(--colorBorderWhite);
+          padding: 1.43rem 0;
+          div {
+            display: flex;
+            align-items: center;
+            h4 {
+              margin-left: 1.79rem;
+              font-size: var(--fs-15);
+            }
+          }
+        }
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      svg {
+        position: relative;
+        z-index: 0;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 56.25em) {
+  //900px
+  nav {
+    .wrapper {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 2.44em;
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 43.75em) {
+  //700px
+  nav {
+    .wrapper {
+      .logo {
+        justify-content: space-between;
+        align-items: center;
+        .hamburger {
+          position: fixed;
+          z-index: 100;
+
+          right: 1rem;
+          padding: 4px;
+          cursor: pointer;
+          color: white;
+          border: none;
+          background-color: transparent;
+          font-size: 40px;
+        }
+        .show {
+          display: block;
+        }
+      }
+      .nav-list {
+        display: none;
+      }
+    }
+  }
+}

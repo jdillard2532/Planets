@@ -1,0 +1,59 @@
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const openMenu = document.querySelector(".fa-bars");
+  const closeMenu = document.querySelector(".fa-xmark");
+  const menulist = document.querySelector(".menu-list");
+  const mainListItem = document.querySelectorAll(".main_list_Item");
+  const planetImage = document.querySelector(".planetImage");
+  const planetInternalImage = document.querySelector(".planetInternal");
+  const planetGeoImage = document.querySelector(".planetGeology");
+  const planetName = document.querySelectorAll(".mainPlanetName");
+  const planetImageWrapper = document.querySelectorAll(".planetImageWrapper");
+
+  mainListItem.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      infoLabel(e);
+    });
+  });
+
+  hamburger.addEventListener("click", () => {
+    if (openMenu.classList.contains("show")) {
+      openMenu.classList.remove("show");
+      openMenu.classList.add("hide");
+      closeMenu.classList.remove("hide");
+      closeMenu.classList.add("show");
+      menulist.style.display = "flex";
+    } else {
+      openMenu.classList.remove("hide");
+      openMenu.classList.add("show");
+      closeMenu.classList.remove("show");
+      closeMenu.classList.add("hide");
+      menulist.style.display = "none";
+    }
+  });
+
+  function infoLabel(e) {
+    for (const i of mainListItem) {
+      i.classList.remove("bgColor");
+    }
+    e.target.classList.add("bgColor");
+    displayImage(e);
+  }
+  //used to highlight background of overiew section
+  function displayImage(e) {
+    let selection = e.target.classList;
+    if (e.target.classList.contains("overview")) {
+      planetImage.style.display = "block";
+      planetInternalImage.style.display = "none";
+      planetGeoImage.style.display = "none";
+    } else if (e.target.classList.contains("structure")) {
+      planetImage.style.display = "none";
+      planetInternalImage.style.display = "block";
+      planetGeoImage.style.display = "none";
+    } else if (e.target.classList.contains("geology")) {
+      planetImage.style.display = "block";
+      planetInternalImage.style.display = "none";
+      planetGeoImage.style.display = "block";
+    }
+  }
+</script>

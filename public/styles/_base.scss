@@ -1,0 +1,92 @@
+// FONT
+$ff-Secondary: "Antonio", sans-serif;
+$ff-Primary: "League Spartan", sans-serif;
+$fs-80: 80px;
+$fs-40: 40px;
+$fs-18: 18px;
+$fs-14: 14px;
+$fs-12: 12px;
+$fs-11: 11px;
+
+// COLORS
+$colorWhite: hsl(0, 0%, 100%);
+$colorBorderWhite: hsla(0%, 0%, 100%, 0.3);
+$colorDarkBlue: hsla(240, 67%, 8%, 1);
+$colorGreen: hsla(169, 73%, 44%, 1);
+$colorBlue: hsla(222, 87%, 56%, 1);
+$colorDarkGray: hsla(240, 17%, 26%, 1);
+$colorTeal: hsla(194, 48%, 49%, 1);
+$colorPurple: hsla(263, 67%, 51%, 1);
+$colorGray: hsla(240, 6%, 54%, 1);
+$colorOrange100: hsla(17, 73%, 46%, 1);
+$colorOrange200: hsla(10, 63%, 51%, 1);
+$colorOrange300: hsla(2, 68%, 53%, 1);
+$colorYellow: hsla(33, 82%, 61%, 1);
+
+:root {
+  // FONT SIZE
+  --ff-Primary: #{$ff-Primary};
+  --ff-Secondary: #{$ff-Secondary};
+  --fs-80: #{$fs-80};
+  --fs-40: #{$fs-40};
+  --fs-18: #{$fs-18};
+  --fs-14: #{$fs-14};
+  --fs-15: 15px;
+  --fs-12: #{$fs-12};
+  --fs-11: #{$fs-11};
+  --fw-400: 400;
+  --fw-800: 800;
+  // COLOR
+  --colorWhite: #{$colorWhite};
+  --colorBorderWhite: #{$colorBorderWhite};
+  --colorDarkBlue: #{$colorDarkBlue};
+  --colorGreen: #{$colorGreen};
+  --colorBlue: #{$colorBlue};
+  --colorDarkGray: #{$colorDarkGray};
+  --colorTeal: #{$colorTeal};
+  --colorPurple: #{$colorPurple};
+  --colorGray: #{$colorGray};
+  --colorYellow: #{$colorYellow};
+  --colorOrange100: #{$colorOrange100};
+  --colorOrange200: #{$colorOrange200};
+  --colorOrange300: #{$colorOrange300};
+}
+
+body {
+  position: relative;
+  background-color: var(--colorDarkBlue);
+  font-family: var(--ff-Primary);
+  font-size: var(--fs-14);
+  line-height: 1.79rem;
+  color: var(--colorWhite);
+
+  svg {
+    position: absolute;
+    align-self: center;
+    z-index: -1;
+  }
+}
+
+h1 {
+  font-family: var(--ff-Secondary);
+  font-size: var(--fs-80);
+  text-transform: uppercase;
+  line-height: 7.39rem;
+}
+
+h2 {
+  font-family: var(--ff-Secondary);
+  font-size: var(--fs-40);
+  letter-spacing: -1.5px;
+}
+h3 {
+  font-size: var(--fs-12);
+  line-height: 1.79rem;
+}
+h4 {
+  font-size: var(--fs-11);
+  line-height: 1.79rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: var(--fw-800);
+}

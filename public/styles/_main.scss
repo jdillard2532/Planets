@@ -1,0 +1,63 @@
+main {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 9em auto 0 auto;
+    align-items: center;
+    max-width: 79.28rem;
+    gap: 2.14rem;
+
+    .planet {
+      grid-column: 3/9;
+      div {
+        position: relative;
+      }
+      img {
+        height: 100%;
+      }
+      .planetInternal,
+      .planetGeology {
+        display: none;
+      }
+      .planetGeology {
+        position: absolute;
+        height: 165px;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .planetInfo {
+      grid-column: 9/-1;
+      max-width: 350px;
+      p:first-of-type {
+        margin-bottom: 1.71rem;
+      }
+      .bgColor {
+        background-color: var(--colorTeal);
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.14rem;
+        margin-top: 2.79rem;
+        li {
+          text-transform: uppercase;
+          border: 1px solid var(--colorBorderWhite);
+          padding: 0.79rem 2rem;
+          span {
+            color: var(--colorWhite);
+            opacity: 0.5;
+            margin-right: 2rem;
+          }
+          &:hover {
+            background-color: var(--colorGray);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
