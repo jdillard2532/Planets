@@ -1,4 +1,9 @@
 main {
+  position: relative;
+  .mobileOverview {
+    display: none;
+  }
+
   .wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -6,14 +11,18 @@ main {
     align-items: center;
     max-width: 79.28rem;
     gap: 2.14rem;
+    justify-items: center;
 
     .planet {
-      grid-column: 3/9;
+      grid-column: 1/8;
+      grid-row: 1;
       div {
         position: relative;
       }
-      img {
-        height: 100%;
+
+      .planetImage,
+      .planetInternal {
+        margin-inline: auto;
       }
       .planetInternal,
       .planetGeology {
@@ -29,12 +38,28 @@ main {
     }
     .planetInfo {
       grid-column: 9/-1;
+      grid-row: 1;
       max-width: 350px;
-      p:first-of-type {
-        margin-bottom: 1.71rem;
+      h1 {
+        margin-bottom: 3rem;
       }
-      .bgColor {
-        background-color: var(--colorTeal);
+
+      p:last-of-type {
+        margin-top: 1.71rem;
+
+        color: var(--colorGray);
+        a {
+          color: var(--colorGray);
+        }
+        img {
+          display: inline-block;
+          margin-left: 0.57rem;
+        }
+      }
+
+      .geologyInfo,
+      .structureInfo {
+        display: none;
       }
 
       ul {
@@ -47,6 +72,9 @@ main {
           text-transform: uppercase;
           border: 1px solid var(--colorBorderWhite);
           padding: 0.79rem 2rem;
+          font-size: var(--fs-12);
+          letter-spacing: 0.184rem;
+          font-weight: var(--fw-700);
           span {
             color: var(--colorWhite);
             opacity: 0.5;
@@ -56,6 +84,127 @@ main {
             background-color: var(--colorGray);
             cursor: pointer;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 75em) {
+  //1200px
+  main {
+    padding: 0 1em;
+    .wrapper {
+      .planet {
+        grid-column: 1/8;
+      }
+      .planetInfo {
+        grid-column: 8/-1;
+        grid-row: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 73.24em) {
+  //1025px
+  main {
+    .wrapper {
+      .planet {
+        grid-column: 1/9;
+      }
+      .planetInfo {
+        grid-column: 9/-1;
+      }
+    }
+  }
+}
+
+@media (max-width: 56.25em) {
+  //900px
+  main {
+    padding: 0 2.79rem;
+    .wrapper {
+      .planet {
+        .planetGeology {
+          height: 90px;
+          width: 80px;
+        }
+      }
+      .planet,
+      .planetInfo {
+        grid-column: 1/-1;
+      }
+      .planetImage {
+        max-width: 26.36rem;
+      }
+
+      .planetInfo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row: 2;
+        gap: 3.79rem;
+        max-width: 49.2rem;
+        align-items: center;
+        h1 {
+          font-size: var(--fs-48);
+        }
+        p {
+          font-size: var(--fs-11);
+          line-height: 1.57rem;
+        }
+        p:last-of-type {
+          font-size: var(--fs-12);
+        }
+        ul {
+          margin-top: 0;
+          li {
+            font-size: var(--fs-9);
+            letter-spacing: 0.14rem;
+            padding: 0.17rem 1.43rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+//650px
+@media (max-width: 40.63em) {
+  main {
+    .mobileOverview {
+      display: block;
+      ul {
+        list-style: none;
+        display: flex;
+        padding: 1.43rem 0;
+        justify-content: space-between;
+        li {
+          cursor: pointer;
+          text-transform: uppercase;
+          letter-spacing: 0.14rem;
+          font-size: var(--fs-9);
+          &:hover {
+            background-color: var(--colorGray);
+          }
+        }
+      }
+    }
+    .wrapper {
+      margin: 5rem 0;
+      gap: 0;
+      .planetInfo {
+        margin-top: 5rem;
+        grid-template-columns: 1fr;
+        text-align: center;
+        div:last-of-type {
+          display: none;
+        }
+        p:last-of-type {
+          margin-top: 2.29rem;
+        }
+        h1 {
+          margin-bottom: 0;
         }
       }
     }

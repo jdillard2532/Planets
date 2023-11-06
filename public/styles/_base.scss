@@ -24,17 +24,23 @@ $colorOrange300: hsla(2, 68%, 53%, 1);
 $colorYellow: hsla(33, 82%, 61%, 1);
 
 :root {
+  font-size: 14px;
   // FONT SIZE
   --ff-Primary: #{$ff-Primary};
   --ff-Secondary: #{$ff-Secondary};
   --fs-80: #{$fs-80};
+  --fs-48: 48px;
   --fs-40: #{$fs-40};
+  --fs-24: 24px;
   --fs-18: #{$fs-18};
   --fs-14: #{$fs-14};
   --fs-15: 15px;
   --fs-12: #{$fs-12};
   --fs-11: #{$fs-11};
+  --fs-9: 9px;
+  --fs-8: 8px;
   --fw-400: 400;
+  --fw-700: 700;
   --fw-800: 800;
   // COLOR
   --colorWhite: #{$colorWhite};
@@ -54,17 +60,17 @@ $colorYellow: hsla(33, 82%, 61%, 1);
 
 body {
   position: relative;
-  background-color: var(--colorDarkBlue);
+  background: no-repeat var(--colorDarkBlue) url("/assets/background-stars.svg");
   font-family: var(--ff-Primary);
   font-size: var(--fs-14);
   line-height: 1.79rem;
   color: var(--colorWhite);
-
-  svg {
-    position: absolute;
-    align-self: center;
-    z-index: -1;
-  }
+}
+h1,
+h2,
+h3,
+h4 {
+  display: inline-block;
 }
 
 h1 {

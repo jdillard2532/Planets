@@ -11,35 +11,35 @@
     </div>
 
     <ul class="nav-list">
-      <li class="nav_list_item venus">
+      <li class="nav-list-item">
         <h4><a href="/mercury">Mercury</a></h4>
       </li>
 
-      <li class="nav_list_item venus">
+      <li class="nav-list-item">
         <h4><a href="/venus">Venus</a></h4>
       </li>
-      <li>
+      <li class="nav-list-item">
         <h4><a href="/earth">Earth</a></h4>
       </li>
-      <li>
+      <li class="nav-list-item">
         <h4><a href="/mars">Mars</a></h4>
       </li>
-      <li>
+      <li class="nav-list-item">
         <h4><a href="/jupiter">Jupiter</a></h4>
       </li>
-      <li>
+      <li class="nav-list-item">
         <h4><a href="/saturn">Saturn</a></h4>
       </li>
-      <li>
+      <li class="nav-list-item">
         <h4><a href="/uranus">Uranus</a></h4>
       </li>
-      <li>
+      <li class="nav-list-item">
         <h4><a href="/neptune">Neptune</a></h4>
       </li>
     </ul>
     <ul class="menu-list">
       <li>
-        <a href="">
+        <a href="/mercury">
           <div class="wrapper">
             <div>
               <svg
@@ -60,7 +60,7 @@
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="/venus">
           <div class="wrapper">
             <div>
               <svg
@@ -81,7 +81,7 @@
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="/earth">
           <div class="wrapper">
             <div>
               <svg
@@ -102,7 +102,7 @@
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="/mars">
           <div class="wrapper">
             <div>
               <svg
@@ -123,7 +123,7 @@
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="/jupiter">
           <div class="wrapper">
             <div>
               <svg
@@ -144,7 +144,7 @@
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="/saturn">
           <div class="wrapper">
             <div>
               <svg
@@ -165,7 +165,7 @@
         </a>
       </li>
       <li>
-        <a href="/">
+        <a href="/uranus">
           <div class="wrapper">
             <div>
               <svg
@@ -186,7 +186,7 @@
         </a>
       </li>
       <li>
-        <a href="/">
+        <a href="/neptune">
           <div class="wrapper">
             <div>
               <svg
@@ -210,29 +210,73 @@
   </div>
 </nav>
 <main>
+  <div class="mobileOverview">
+    <ul class="'overviewList">
+      <li class="main_list_Item overview">Overview</li>
+      <li class="main_list_Item structure">Structure</li>
+      <li class="main_list_Item geology">Geology</li>
+    </ul>
+  </div>
   <section class="wrapper">
     <div class="planet">
       <div class="planetImageWrapper">
-        <img src="<%=data.images.planet %>" class="planetImage" alt="" />
-        <img src="<%=data.images.geology %>" class="planetGeology" alt="" />
+        <img src="<%=data.images.planet %>" class="planetImage" alt="planet" />
+        <img
+          src="<%=data.images.geology %>"
+          class="planetGeology"
+          alt="geologyInfo"
+        />
       </div>
-      <img src="<%=data.images.internal %>" class="planetInternal" alt="" />
+      <img
+        src="<%=data.images.internal %>"
+        class="planetInternal"
+        alt="planetInternalInfo"
+      />
     </div>
 
     <div class="planetInfo">
-      <h1 class="mainPlanetName"><%= data.name %></h1>
-      <p><%=data.overview.content%></p>
-      <p>Source : <a href="<%= data.overview.source %>">Wikipedia</a></p>
-      <ul class="'overviewList">
-        <li class="main_list_Item overview bgColor">
-          <span>01</span> Overview
-        </li>
-        <li class="main_list_Item structure">
-          <span>02</span> Internal Structure
-        </li>
-        <li class="main_list_Item geology"><span>03</span> Surface Geology</li>
-      </ul>
+      <div>
+        <h1 class="mainPlanetName"><%= data.name %></h1>
+        <p class="overviewInfo"><%=data.overview.content%></p>
+        <p class="structureInfo"><%=data.structure.content%></p>
+        <p class="geologyInfo"><%=data.geology.content%></p>
+        <p>
+          Source : <a href="<%= data.overview.source %>">Wikipedia</a>
+          <img src="/assets/icon-source.svg" alt="icon" />
+        </p>
+      </div>
+      <div>
+        <ul class="'overviewList">
+          <li class="main_list_Item overview"><span>01</span> Overview</li>
+          <li class="main_list_Item structure">
+            <span>02</span> Internal Structure
+          </li>
+          <li class="main_list_Item geology">
+            <span>03</span> Surface Geology
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 </main>
+<footer>
+  <div class="wrapper">
+    <div class="rotationTime">
+      <p>Rotation Time</p>
+      <h2><%= data.rotation %></h2>
+    </div>
+    <div class="rotationTime">
+      <p>Revolution Time</p>
+      <h2><%= data.revolution %></h2>
+    </div>
+    <div class="rotationTime">
+      <p>Radius</p>
+      <h2><%= data.radius %></h2>
+    </div>
+    <div class="rotationTime">
+      <p>Average Temp.</p>
+      <h2><%= data.temperature %></h2>
+    </div>
+  </div>
+</footer>
 <%- include("partials/script") %> <%- include("partials/footer") %>

@@ -3,19 +3,45 @@
   const openMenu = document.querySelector(".fa-bars");
   const closeMenu = document.querySelector(".fa-xmark");
   const menulist = document.querySelector(".menu-list");
+  const navList = document.querySelectorAll(".nav-list-item");
   const mainListItem = document.querySelectorAll(".main_list_Item");
   const planetImage = document.querySelector(".planetImage");
   const planetInternalImage = document.querySelector(".planetInternal");
   const planetGeoImage = document.querySelector(".planetGeology");
   const planetName = document.querySelectorAll(".mainPlanetName");
   const planetImageWrapper = document.querySelectorAll(".planetImageWrapper");
+  const overiewInfo = document.querySelector(".overviewInfo");
+  const structureInfo = document.querySelector(".structureInfo");
+  const geologyInfo = document.querySelector(".geologyInfo");
+  const overview = document.querySelectorAll(".overview");
+  const structure = document.querySelectorAll(".structure");
+  const geology = document.querySelectorAll(".geology");
+
+  checkOption();
+  //event listenter for screen size
+  addEventListener("resize", (e) => {
+    imageSize(window.innerWidth);
+    findColor2();
+  });
+  //link hover effect IN
+  navList.forEach((item) => {
+    item.addEventListener("mouseover", (e) => {
+      hover(e);
+    });
+  });
+  //link hover effect OUT
+  navList.forEach((item) => {
+    item.addEventListener("mouseout", (e) => {
+      leaveHover(e);
+    });
+  });
 
   mainListItem.forEach((item) => {
     item.addEventListener("click", (e) => {
       infoLabel(e);
     });
   });
-
+  //hamburger menu
   hamburger.addEventListener("click", () => {
     if (openMenu.classList.contains("show")) {
       openMenu.classList.remove("show");
@@ -31,29 +57,347 @@
       menulist.style.display = "none";
     }
   });
-
+  //display image based on use selection
   function infoLabel(e) {
     for (const i of mainListItem) {
-      i.classList.remove("bgColor");
+      i.style.backgroundColor = "";
+      i.style.borderBottom = "";
     }
-    e.target.classList.add("bgColor");
+    findColor(e);
     displayImage(e);
   }
-  //used to highlight background of overiew section
+  //highlight background of overiew section
   function displayImage(e) {
     let selection = e.target.classList;
     if (e.target.classList.contains("overview")) {
       planetImage.style.display = "block";
       planetInternalImage.style.display = "none";
       planetGeoImage.style.display = "none";
+      overiewInfo.style.display = "block";
+      structureInfo.style.display = "none";
+      geologyInfo.style.display = "none";
     } else if (e.target.classList.contains("structure")) {
       planetImage.style.display = "none";
       planetInternalImage.style.display = "block";
       planetGeoImage.style.display = "none";
+      overiewInfo.style.display = "none";
+      structureInfo.style.display = "block";
+      geologyInfo.style.display = "none";
     } else if (e.target.classList.contains("geology")) {
       planetImage.style.display = "block";
       planetInternalImage.style.display = "none";
       planetGeoImage.style.display = "block";
+      overiewInfo.style.display = "none";
+      structureInfo.style.display = "none";
+      geologyInfo.style.display = "block";
     }
+  }
+  function imageSize(width) {
+    let planet = planetName[0].textContent;
+    if (width < 900 && width > 600) {
+      switch (planet) {
+        case "Mercury":
+          setWidthHeight(184);
+          break;
+        case "Venus":
+          setWidthHeight(253);
+          break;
+        case "Earth":
+          setWidthHeight(285);
+          break;
+        case "Mars":
+          setWidthHeight(213);
+          break;
+        case "Jupiter":
+          setWidthHeight(369);
+          break;
+        case "Saturn":
+          setWidthHeight(422);
+          break;
+        case "Uranus":
+          setWidthHeight(290);
+          break;
+        case "Neptune":
+          setWidthHeight(295);
+          break;
+      }
+    } else if (width >= 900) {
+      switch (planet) {
+        case "Mercury":
+          setWidthHeight(290);
+          break;
+        case "Venus":
+          setWidthHeight(400);
+          break;
+        case "Earth":
+          setWidthHeight(450);
+          break;
+        case "Mars":
+          setWidthHeight(336);
+          break;
+        case "Jupiter":
+          setWidthHeight(582);
+          break;
+        case "Saturn":
+          setWidthHeight(600);
+          break;
+        case "Uranus":
+          setWidthHeight(458);
+          break;
+        case "Neptune":
+          setWidthHeight(450);
+          break;
+      }
+    } else if (width <= 600) {
+      switch (planet) {
+        case "Mercury":
+          setWidthHeight(111);
+          break;
+        case "Venus":
+          setWidthHeight(154);
+          break;
+        case "Earth":
+          setWidthHeight(173);
+          break;
+        case "Mars":
+          setWidthHeight(129);
+          break;
+        case "Jupiter":
+          setWidthHeight(224);
+          break;
+        case "Saturn":
+          setWidthHeight(200);
+          break;
+        case "Uranus":
+          setWidthHeight(176);
+          break;
+        case "Neptune":
+          setWidthHeight(173);
+          break;
+      }
+    }
+  }
+  //add static height and width to images
+  function setWidthHeight(num) {
+    planetImage.setAttribute("width", `${num}px`);
+    planetImage.setAttribute("height", `${num}px`);
+    planetInternalImage.setAttribute("width", `${num}px`);
+    planetInternalImage.setAttribute("height", `${num}px`);
+  }
+  //find color
+  function findColor(e) {
+    let planet = planetName[0].textContent;
+    let width = window.innerWidth;
+    if (width < 650) {
+      switch (planet) {
+        case "Mercury":
+          e.target.style.borderBottom = "4px solid #419EBB";
+          break;
+        case "Venus":
+          e.target.style.borderBottom = "4px solid #EDA249";
+          break;
+        case "Earth":
+          e.target.style.borderBottom = "4px solid #6D2ED5";
+
+          break;
+        case "Mars":
+          e.target.style.borderBottom = "4px solid #D14C32";
+
+          break;
+        case "Jupiter":
+          e.target.style.borderBottom = "4px solid #D83A34";
+
+          break;
+        case "Saturn":
+          e.target.style.borderBottom = "4px solid #CD5120";
+
+          break;
+        case "Uranus":
+          e.target.style.borderBottom = "4px solid #1EC1A2";
+
+          break;
+        case "Neptune":
+          e.target.style.borderBottom = "4px solid #2D68F0";
+
+          break;
+      }
+    } else {
+      switch (planet) {
+        case "Mercury":
+          e.target.style.backgroundColor = "#419EBB";
+          break;
+        case "Venus":
+          e.target.style.backgroundColor = "#EDA249";
+          break;
+        case "Earth":
+          e.target.style.backgroundColor = "#6D2ED5";
+
+          break;
+        case "Mars":
+          e.target.style.backgroundColor = "#D14C32";
+
+          break;
+        case "Jupiter":
+          e.target.style.backgroundColor = "#D83A34";
+
+          break;
+        case "Saturn":
+          e.target.style.backgroundColor = "#CD5120";
+
+          break;
+        case "Uranus":
+          e.target.style.backgroundColor = "#1EC1A2";
+
+          break;
+        case "Neptune":
+          e.target.style.backgroundColor = "#2D68F0";
+
+          break;
+      }
+    }
+  }
+  //find color on load
+  function findColor2() {
+    let planet = planetName[0].textContent;
+    let width = window.innerWidth;
+    clearList();
+    if (width < 650) {
+      for (const i of overview) {
+        switch (planet) {
+          case "Mercury":
+            i.style.borderBottom = "4px solid #419EBB";
+            break;
+          case "Venus":
+            i.style.borderBottom = "4px solid #EDA249";
+            break;
+          case "Earth":
+            i.style.borderBottom = "4px solid #6D2ED5";
+
+            break;
+          case "Mars":
+            i.style.borderBottom = "4px solid #D14C32";
+
+            break;
+          case "Jupiter":
+            i.style.borderBottom = "4px solid #D83A34";
+
+            break;
+          case "Saturn":
+            i.style.borderBottom = "4px solid #CD5120";
+
+            break;
+          case "Uranus":
+            i.style.borderBottom = "4px solid #1EC1A2";
+
+            break;
+          case "Neptune":
+            i.style.borderBottom = "4px solid #2D68F0";
+            break;
+        }
+      }
+    } else {
+      for (const i of overview) {
+        switch (planet) {
+          case "Mercury":
+            i.style.backgroundColor = "#419EBB";
+            break;
+          case "Venus":
+            i.style.backgroundColor = "#EDA249";
+            break;
+          case "Earth":
+            i.style.backgroundColor = "#6D2ED5";
+
+            break;
+          case "Mars":
+            i.style.backgroundColor = "#D14C32";
+
+            break;
+          case "Jupiter":
+            i.style.backgroundColor = "#D83A34";
+
+            break;
+          case "Saturn":
+            i.style.backgroundColor = "#CD5120";
+
+            break;
+          case "Uranus":
+            i.style.backgroundColor = "#1EC1A2";
+
+            break;
+          case "Neptune":
+            i.style.backgroundColor = "#2D68F0";
+
+            break;
+        }
+      }
+    }
+  }
+
+  //Check background color and image size
+  function checkOption() {
+    imageSize(window.innerWidth);
+    if (
+      mainListItem[0].style.backgroundColor === "" &&
+      mainListItem[1].style.backgroundColor === "" &&
+      mainListItem[2].style.backgroundColor === ""
+    ) {
+      findColor2();
+    }
+  }
+  //clear main list items styles
+  function clearList() {
+    for (const i of overview) {
+      i.style.backgroundColor = "";
+      i.style.borderBottom = "";
+    }
+    for (const i of structure) {
+      i.style.backgroundColor = "";
+      i.style.borderBottom = "";
+    }
+    for (const i of geology) {
+      i.style.backgroundColor = "";
+      i.style.borderBottom = "";
+    }
+  }
+  //Change color of navLinks on hover
+  function hover(e) {
+    let planetLink = e.target.textContent;
+    if (planetLink) {
+      switch (planetLink) {
+        case "Mercury":
+          e.target.style.color = "#419EBB";
+          break;
+        case "Venus":
+          e.target.style.color = "#EDA249";
+          break;
+        case "Earth":
+          e.target.style.color = "#6D2ED5";
+
+          break;
+        case "Mars":
+          e.target.style.color = "#D14C32";
+
+          break;
+        case "Jupiter":
+          e.target.style.color = "#D83A34";
+
+          break;
+        case "Saturn":
+          e.target.style.color = "#CD5120";
+
+          break;
+        case "Uranus":
+          e.target.style.color = "#1EC1A2";
+
+          break;
+        case "Neptune":
+          e.target.style.color = "#2D68F0";
+
+          break;
+      }
+    }
+  }
+  function leaveHover(e) {
+    e.target.style.color = "";
   }
 </script>
