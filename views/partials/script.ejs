@@ -94,87 +94,26 @@
   }
   function imageSize(width) {
     let planet = planetName[0].textContent;
+    const logPlanet = {
+      Mercury: { small: 111, medium: 184, large: 290 },
+      Venus: { small: 154, medium: 253, large: 400 },
+      Earth: { small: 173, medium: 285, large: 450 },
+      Mars: { small: 129, medium: 213, large: 336 },
+      Jupiter: { small: 224, medium: 369, large: 582 },
+      Saturn: { small: 200, medium: 400, large: 500 },
+      Uranus: { small: 176, medium: 290, large: 458 },
+      Neptune: { small: 173, medium: 295, large: 450 },
+    };
+    let color = logPlanet[planet];
+    let smallSize = logPlanet[planet].small;
+    let mediumSize = logPlanet[planet].medium;
+    let largeSize = logPlanet[planet].large;
     if (width < 900 && width > 600) {
-      switch (planet) {
-        case "Mercury":
-          setWidthHeight(184);
-          break;
-        case "Venus":
-          setWidthHeight(253);
-          break;
-        case "Earth":
-          setWidthHeight(285);
-          break;
-        case "Mars":
-          setWidthHeight(213);
-          break;
-        case "Jupiter":
-          setWidthHeight(369);
-          break;
-        case "Saturn":
-          setWidthHeight(400);
-          break;
-        case "Uranus":
-          setWidthHeight(290);
-          break;
-        case "Neptune":
-          setWidthHeight(295);
-          break;
-      }
+      setWidthHeight(mediumSize);
     } else if (width >= 900) {
-      switch (planet) {
-        case "Mercury":
-          setWidthHeight(290);
-          break;
-        case "Venus":
-          setWidthHeight(400);
-          break;
-        case "Earth":
-          setWidthHeight(450);
-          break;
-        case "Mars":
-          setWidthHeight(336);
-          break;
-        case "Jupiter":
-          setWidthHeight(582);
-          break;
-        case "Saturn":
-          setWidthHeight(500);
-          break;
-        case "Uranus":
-          setWidthHeight(458);
-          break;
-        case "Neptune":
-          setWidthHeight(450);
-          break;
-      }
+      setWidthHeight(largeSize);
     } else if (width <= 600) {
-      switch (planet) {
-        case "Mercury":
-          setWidthHeight(111);
-          break;
-        case "Venus":
-          setWidthHeight(154);
-          break;
-        case "Earth":
-          setWidthHeight(173);
-          break;
-        case "Mars":
-          setWidthHeight(129);
-          break;
-        case "Jupiter":
-          setWidthHeight(224);
-          break;
-        case "Saturn":
-          setWidthHeight(200);
-          break;
-        case "Uranus":
-          setWidthHeight(176);
-          break;
-        case "Neptune":
-          setWidthHeight(173);
-          break;
-      }
+      setWidthHeight(smallSize);
     }
   }
   //add static height and width to images
@@ -188,71 +127,24 @@
   function findColor(e) {
     let planet = planetName[0].textContent;
     let width = window.innerWidth;
+    const logPlanet = {
+      Mercury: "#419EBB",
+      Venus: "#EDA249",
+      Earth: "#6D2ED5",
+      Mars: "#D14C32",
+      Jupiter: "#D83A34",
+      Saturn: "#CD5120",
+      Uranus: "#1EC1A2",
+      Neptune: "#2D68F0",
+    };
+    let color = logPlanet[planet];
     if (width < 650) {
-      switch (planet) {
-        case "Mercury":
-          e.target.style.borderBottom = "4px solid #419EBB";
-          break;
-        case "Venus":
-          e.target.style.borderBottom = "4px solid #EDA249";
-          break;
-        case "Earth":
-          e.target.style.borderBottom = "4px solid #6D2ED5";
-
-          break;
-        case "Mars":
-          e.target.style.borderBottom = "4px solid #D14C32";
-
-          break;
-        case "Jupiter":
-          e.target.style.borderBottom = "4px solid #D83A34";
-
-          break;
-        case "Saturn":
-          e.target.style.borderBottom = "4px solid #CD5120";
-
-          break;
-        case "Uranus":
-          e.target.style.borderBottom = "4px solid #1EC1A2";
-
-          break;
-        case "Neptune":
-          e.target.style.borderBottom = "4px solid #2D68F0";
-
-          break;
+      for (const i of overview) {
+        i.style.borderBottom = `4px solid ${color}`;
       }
     } else {
-      switch (planet) {
-        case "Mercury":
-          e.target.style.backgroundColor = "#419EBB";
-          break;
-        case "Venus":
-          e.target.style.backgroundColor = "#EDA249";
-          break;
-        case "Earth":
-          e.target.style.backgroundColor = "#6D2ED5";
-
-          break;
-        case "Mars":
-          e.target.style.backgroundColor = "#D14C32";
-
-          break;
-        case "Jupiter":
-          e.target.style.backgroundColor = "#D83A34";
-
-          break;
-        case "Saturn":
-          e.target.style.backgroundColor = "#CD5120";
-
-          break;
-        case "Uranus":
-          e.target.style.backgroundColor = "#1EC1A2";
-
-          break;
-        case "Neptune":
-          e.target.style.backgroundColor = "#2D68F0";
-
-          break;
+      for (const i of overview) {
+        i.style.borderBottom = color;
       }
     }
   }
@@ -260,75 +152,26 @@
   function findColor2() {
     let planet = planetName[0].textContent;
     let width = window.innerWidth;
+    const logPlanet = {
+      Mercury: "#419EBB",
+      Venus: "#EDA249",
+      Earth: "#6D2ED5",
+      Mars: "#D14C32",
+      Jupiter: "#D83A34",
+      Saturn: "#CD5120",
+      Uranus: "#1EC1A2",
+      Neptune: "#2D68F0",
+    };
+    let color = logPlanet[planet];
+
     clearList();
     if (width < 650) {
       for (const i of overview) {
-        switch (planet) {
-          case "Mercury":
-            i.style.borderBottom = "4px solid #419EBB";
-            break;
-          case "Venus":
-            i.style.borderBottom = "4px solid #EDA249";
-            break;
-          case "Earth":
-            i.style.borderBottom = "4px solid #6D2ED5";
-
-            break;
-          case "Mars":
-            i.style.borderBottom = "4px solid #D14C32";
-
-            break;
-          case "Jupiter":
-            i.style.borderBottom = "4px solid #D83A34";
-
-            break;
-          case "Saturn":
-            i.style.borderBottom = "4px solid #CD5120";
-
-            break;
-          case "Uranus":
-            i.style.borderBottom = "4px solid #1EC1A2";
-
-            break;
-          case "Neptune":
-            i.style.borderBottom = "4px solid #2D68F0";
-            break;
-        }
+        i.style.borderBottom = `4px solid ${color}`;
       }
     } else {
       for (const i of overview) {
-        switch (planet) {
-          case "Mercury":
-            i.style.backgroundColor = "#419EBB";
-            break;
-          case "Venus":
-            i.style.backgroundColor = "#EDA249";
-            break;
-          case "Earth":
-            i.style.backgroundColor = "#6D2ED5";
-
-            break;
-          case "Mars":
-            i.style.backgroundColor = "#D14C32";
-
-            break;
-          case "Jupiter":
-            i.style.backgroundColor = "#D83A34";
-
-            break;
-          case "Saturn":
-            i.style.backgroundColor = "#CD5120";
-
-            break;
-          case "Uranus":
-            i.style.backgroundColor = "#1EC1A2";
-
-            break;
-          case "Neptune":
-            i.style.backgroundColor = "#2D68F0";
-
-            break;
-        }
+        i.style.backgroundColor = color;
       }
     }
   }
@@ -362,40 +205,18 @@
   //Change color of navLinks on hover
   function hover(e) {
     let planetLink = e.target.textContent;
-    if (planetLink) {
-      switch (planetLink) {
-        case "Mercury":
-          e.target.style.color = "#419EBB";
-          break;
-        case "Venus":
-          e.target.style.color = "#EDA249";
-          break;
-        case "Earth":
-          e.target.style.color = "#6D2ED5";
+    const logPlanet = {
+      Mercury: "#419EBB",
+      Venus: "#EDA249",
+      Earth: "#6D2ED5",
+      Mars: "#D14C32",
+      Jupiter: "#D83A34",
+      Saturn: "#CD5120",
+      Uranus: "#1EC1A2",
+      Neptune: "#2D68F0",
+    };
 
-          break;
-        case "Mars":
-          e.target.style.color = "#D14C32";
-
-          break;
-        case "Jupiter":
-          e.target.style.color = "#D83A34";
-
-          break;
-        case "Saturn":
-          e.target.style.color = "#CD5120";
-
-          break;
-        case "Uranus":
-          e.target.style.color = "#1EC1A2";
-
-          break;
-        case "Neptune":
-          e.target.style.color = "#2D68F0";
-
-          break;
-      }
-    }
+    e.target.style.color = logPlanet[planetLink];
   }
   function leaveHover(e) {
     e.target.style.color = "";
