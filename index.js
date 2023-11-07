@@ -1,6 +1,6 @@
 const express = require("express");
 const data = require("./data.json");
-const bodyParser = require("body-parser");
+const PORT = process.env.Port || 3000;
 const app = express();
 
 app.use(express.static("assets"));
@@ -35,6 +35,6 @@ app.get("/neptune", (req, res) => {
   res.render("index.ejs", { data: data[7] });
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Listen on port 3000");
 });
