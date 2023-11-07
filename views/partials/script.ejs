@@ -112,7 +112,7 @@
           setWidthHeight(369);
           break;
         case "Saturn":
-          setWidthHeight(422);
+          setWidthHeight(400);
           break;
         case "Uranus":
           setWidthHeight(290);
@@ -139,7 +139,7 @@
           setWidthHeight(582);
           break;
         case "Saturn":
-          setWidthHeight(600);
+          setWidthHeight(500);
           break;
         case "Uranus":
           setWidthHeight(458);
@@ -179,10 +179,10 @@
   }
   //add static height and width to images
   function setWidthHeight(num) {
-    planetImage.setAttribute("width", `${num}px`);
-    planetImage.setAttribute("height", `${num}px`);
-    planetInternalImage.setAttribute("width", `${num}px`);
-    planetInternalImage.setAttribute("height", `${num}px`);
+    planetImage.setAttribute("width", `${num}`);
+    planetImage.setAttribute("height", `${num}`);
+    planetInternalImage.setAttribute("width", `${num}`);
+    planetInternalImage.setAttribute("height", `${num}`);
   }
   //find color
   function findColor(e) {

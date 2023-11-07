@@ -42,6 +42,7 @@ nav {
       li a {
         text-decoration: none;
         color: var(--colorWhite);
+        letter-spacing: 0.07rem;
       }
     }
     .menu-list {
@@ -52,7 +53,7 @@ nav {
       top: 5em;
       list-style: none;
       max-height: 598px;
-      width: 100%;
+      width: calc(100% + 4.57rem);
       z-index: 1;
       li {
         width: 100%;

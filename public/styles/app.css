@@ -179,6 +179,7 @@ nav .wrapper .nav-list {
 nav .wrapper .nav-list li a {
   text-decoration: none;
   color: var(--colorWhite);
+  letter-spacing: 0.07rem;
 }
 nav .wrapper .menu-list {
   position: absolute;
@@ -188,7 +189,7 @@ nav .wrapper .menu-list {
   top: 5em;
   list-style: none;
   max-height: 598px;
-  width: 100%;
+  width: calc(100% + 4.57rem);
   z-index: 1;
 }
 nav .wrapper .menu-list li {
