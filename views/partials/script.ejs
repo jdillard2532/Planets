@@ -16,6 +16,16 @@
   const overview = document.querySelectorAll(".overview");
   const structure = document.querySelectorAll(".structure");
   const geology = document.querySelectorAll(".geology");
+  const logPlanet = {
+    Mercury: "#419EBB",
+    Venus: "#EDA249",
+    Earth: "#6D2ED5",
+    Mars: "#D14C32",
+    Jupiter: "#D83A34",
+    Saturn: "#CD5120",
+    Uranus: "#1EC1A2",
+    Neptune: "#2D68F0",
+  };
 
   checkOption();
   //event listenter for screen size
@@ -127,16 +137,7 @@
   function findColor(e) {
     let planet = planetName[0].textContent;
     let width = window.innerWidth;
-    const logPlanet = {
-      Mercury: "#419EBB",
-      Venus: "#EDA249",
-      Earth: "#6D2ED5",
-      Mars: "#D14C32",
-      Jupiter: "#D83A34",
-      Saturn: "#CD5120",
-      Uranus: "#1EC1A2",
-      Neptune: "#2D68F0",
-    };
+
     let color = logPlanet[planet];
     if (width < 650) {
       for (const i of overview) {
@@ -152,16 +153,6 @@
   function findColor2() {
     let planet = planetName[0].textContent;
     let width = window.innerWidth;
-    const logPlanet = {
-      Mercury: "#419EBB",
-      Venus: "#EDA249",
-      Earth: "#6D2ED5",
-      Mars: "#D14C32",
-      Jupiter: "#D83A34",
-      Saturn: "#CD5120",
-      Uranus: "#1EC1A2",
-      Neptune: "#2D68F0",
-    };
     let color = logPlanet[planet];
 
     clearList();
@@ -205,17 +196,6 @@
   //Change color of navLinks on hover
   function hover(e) {
     let planetLink = e.target.textContent;
-    const logPlanet = {
-      Mercury: "#419EBB",
-      Venus: "#EDA249",
-      Earth: "#6D2ED5",
-      Mars: "#D14C32",
-      Jupiter: "#D83A34",
-      Saturn: "#CD5120",
-      Uranus: "#1EC1A2",
-      Neptune: "#2D68F0",
-    };
-
     e.target.style.color = logPlanet[planetLink];
   }
   function leaveHover(e) {
